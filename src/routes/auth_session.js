@@ -19,7 +19,7 @@ auth_session_router.post("/login", (req, res) => {
     const session_id = nanoid();
     session_IDs.push({ session_id, guid });
 
-    // Settee it on a cookie
+    // Settee it on a cookie (Sending the cookie so that it can be stored on the client side.)
     res.cookie("session_id", session_id, {
       // So that it cannot be read from the client with JS (Cross-Site Scripting (XSS) attacks)
       httpOnly: true,
@@ -32,6 +32,8 @@ auth_session_router.post("/login", (req, res) => {
 
 // Obtain data while already authenticated with session
 auth_session_router.get("/profile", (req, res) => {
+  // Important! Cookies are automatically sent when you make a request. 
+
   // A middleware is needed to read the cookie
   console.log(req.cookies);
   const { cookies } = req;
@@ -43,7 +45,8 @@ auth_session_router.get("/profile", (req, res) => {
   );
   if (!user_session) return res.status(401).send();
 
-  const user_data = USERS_DATA.find((user = user.guid === user_session.guid));
+  const user_data = USERS_DATA.find((user => user.guid === user_session.guid));
+  if (!user_data) return res.status(401).send();
 
   return res.send(`Welcome back ${user_data.name}`);
 });
