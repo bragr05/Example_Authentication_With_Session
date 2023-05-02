@@ -1,4 +1,4 @@
-# Brief example of authorization and authentication with express in Node JS🌐.
+# Brief example authentication with ` Session ` in Node JS🌐.
 
 #### About the project
 This project presents a very simple example of how to handle login authentications via `session` in Node JS with Express. It makes use of a small database in `Json` format that is loaded in memory to use the default user data. This project focuses on business logic and data manipulation (**does not include a frontend**). 
