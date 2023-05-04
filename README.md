@@ -27,9 +27,6 @@ As additional data:
     <strong>
     Thanks for using this project! If you have any problems or suggestions, feel free to create an issue on GitHub.
     </strong>
-    <br>
-    <br>
-    <img src="https://33.media.tumblr.com/26096d682c56c950bcf9b790db418bef/tumblr_no979wnMPZ1s4e3v8o1_500.gif" width="150" alt="GIF">
   <p>
 
 
